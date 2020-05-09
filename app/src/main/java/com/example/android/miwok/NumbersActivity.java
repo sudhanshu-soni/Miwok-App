@@ -2,12 +2,9 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import java.util.ArrayList;
-import java.util.List;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -29,15 +26,9 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        // Find the root view so we can add child views to it
-        LinearLayout rootView = (LinearLayout)findViewById(R.id.rootView);
-
-        // Keep looping until we've reached the end of the list (which means keep looping
-        // as long as the current index position is less than the length of the list)
-        for(int index = 0;index < words.size();index++){
-            TextView childView = new TextView(this);
-            childView.setText(words.get(index));
-            rootView.addView(childView);
-        }
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>
+                (this , android.R.layout.simple_list_item_1 ,words);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(itemsAdapter);
     }
 }
