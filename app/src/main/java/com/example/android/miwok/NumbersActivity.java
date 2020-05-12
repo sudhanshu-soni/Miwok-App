@@ -10,7 +10,7 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         //create array of words
         ArrayList<Word> words =new ArrayList<>();
@@ -26,7 +26,7 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("ten", "na’aacha"));
 
         WordAdapter itemsAdapter = new WordAdapter(this, words);
-        ListView listView = (ListView) findViewById(R.id.listNumber);
+        ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(itemsAdapter);
     }
 }
